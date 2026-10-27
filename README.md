@@ -4,6 +4,8 @@ A real-time retail analytics pipeline built on the **Medallion Architecture** (B
 
 Everything runs locally: Kafka in Docker, the lakehouse layers as Parquet files on disk.
 
+App URL : https://enterprise-retail-medallion-lakehouse-23jhjceszvzl554ac85pur.streamlit.app/
+
 ---
 
 ## Architecture
