@@ -95,7 +95,7 @@ Enterprise-Retail-Medallion-Lakehouse/
 ### 1. Clone and install dependencies
 
 ```bash
-git clone <your-repo-url>
+git clone <repo-url>
 cd Enterprise-Retail-Medallion-Lakehouse
 
 python -m venv venv
