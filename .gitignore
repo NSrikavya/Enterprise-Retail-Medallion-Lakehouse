@@ -1,0 +1,12 @@
+# Python and Virtual Environments
+venv/
+__pycache__/
+*.pyc
+
+# Data Lake Layers (Local storage should not go to GitHub)
+bronze_layer/
+silver_layer/
+gold_layer/
+
+# Docker logs or local files
+.DS_Store
