@@ -44,17 +44,13 @@ Everything runs locally: Kafka in Docker, the lakehouse layers as Parquet files 
 
 ### Layers
 
-| Layer | Location                            | What happens                                                                                                                                                    |
-|-------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 🥉    |                                     |                                                                                                                                                                |
-|Bronze | `bronze_layer/retail_transactions/` | Raw Kafka events written as-is to Parquet, one file per 10 transactions (`batch_<timestamp>.parquet`).                                                          |
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 🥈   |                                                                                                                                                                                                        |
-|Silver | `silver_layer/retail_transactions/` | Deduplicates on `transaction_id`, casts `quantity` / `unit_price` / `total_amount` to proper types, uppercases `store_id`, and adds a `silver_processed_at` audit       column. |                                                                                                                                                                                                       |
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 🥇    |                                     |                                                                                                                                                                 |
-|Gold   | `gold_layer/`                       | Aggregated tables ready for BI tools: `sales_by_store` and `top_products`.                                                                                      |                     |        |                                     |                                                                                                                                                                |
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Layer | Location | What happens |
+|-------|----------|--------------|
+| 🥉 **Bronze** | `bronze_layer/retail_transactions/` | Raw Kafka events written as-is to Parquet, one file per 10 transactions (`batch_<timestamp>.parquet`). |
+| 🥈 **Silver** | `silver_layer/retail_transactions/` | Deduplicates on `transaction_id`, casts `quantity` / `unit_price` / `total_amount` to proper types, uppercases `store_id`, and adds a `silver_processed_at` audit column. |
+| 🥇 **Gold** | `gold_layer/` | Aggregated tables ready for BI tools: `sales_by_store` and `top_products`. |
+
+
 ### Gold tables
 
 - **`sales_by_store/metrics_by_store.parquet`**: total revenue, transaction count, and average basket size per store.
